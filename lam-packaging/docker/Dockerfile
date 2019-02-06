@@ -51,6 +51,9 @@ RUN a2enmod rewrite
 RUN echo "RewriteEngine on" >> /etc/apache2/conf-enabled/laminit.conf \
  && echo "RewriteRule   ^/$  /lam/ [R,L]" >> /etc/apache2/conf-enabled/laminit.conf
 
+# expose port for proxies
+EXPOSE 80
+
 # start Apache when container starts
 ENTRYPOINT service apache2 start && sleep infinity
 
